@@ -10,8 +10,7 @@ You against the computer. Click a move, and the computer picks one at random.
  
 ## What I added
  
-- Nothing yet. This list grows as I work on Make It Yours.
- 
+-  Changed rock to banana, paper to frog, and scissors to pizza. 
 ## Credits
  
 - The starting game was written by Mr. Gordon.

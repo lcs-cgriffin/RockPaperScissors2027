@@ -17,9 +17,9 @@ import SwiftUI
 
 // The picture for each move. These are emoji, so they are just text.
 // TRY: Change these to other emoji to give the game a new theme.
-let rockEmoji: String = "🪨"
-let paperEmoji: String = "📄"
-let scissorsEmoji: String = "✂️"
+let bananaEmoji: String = "🍌"
+let frogEmoji: String = "🐸"
+let pizzaEmoji: String = "🍕 "
 
 // The game itself: what it remembers, what it shows on the screen,
 // and what it does when you click a button.
@@ -104,34 +104,34 @@ struct RockPaperScissorsView: View {
 
             HStack(spacing: 12) {
                 Button {
-                    chooseRock()
+                    chooseBanana()
                 } label: {
                     VStack {
-                        Text(rockEmoji)
+                        Text(bananaEmoji)
                             .font(.system(size: 44))
-                        Text("Rock")
+                        Text("Banana")
                     }
                     .frame(maxWidth: .infinity)
                 }
 
                 Button {
-                    choosePaper()
+                    chooseFrog()
                 } label: {
                     VStack {
-                        Text(paperEmoji)
+                        Text(frogEmoji)
                             .font(.system(size: 44))
-                        Text("Paper")
+                        Text("Frog")
                     }
                     .frame(maxWidth: .infinity)
                 }
 
                 Button {
-                    chooseScissors()
+                    choosePizza()
                 } label: {
                     VStack {
-                        Text(scissorsEmoji)
+                        Text(pizzaEmoji)
                             .font(.system(size: 44))
-                        Text("Scissors")
+                        Text("Pizza")
                     }
                     .frame(maxWidth: .infinity)
                 }
@@ -140,6 +140,7 @@ struct RockPaperScissorsView: View {
             .font(.headline)
             // TRY: Change teal to another colour. Change it in the title and the moves box too.
             .tint(Color.teal)
+        
 
             Text("Rounds played: \(roundsPlayed)")
                 .font(.headline)
@@ -154,23 +155,23 @@ struct RockPaperScissorsView: View {
     // MARK: - Functions
 
     // The player picked rock.
-    func chooseRock() {
-        playerMove = "Rock"
-        playerEmoji = rockEmoji
+    func chooseBanana() {
+        playerMove = "Banana"
+        playerEmoji = bananaEmoji
         playRound()
     }
 
     // The player picked paper.
-    func choosePaper() {
-        playerMove = "Paper"
-        playerEmoji = paperEmoji
+    func chooseFrog() {
+        playerMove = "Frog"
+        playerEmoji = frogEmoji
         playRound()
     }
 
     // The player picked scissors.
-    func chooseScissors() {
-        playerMove = "Scissors"
-        playerEmoji = scissorsEmoji
+    func choosePizza() {
+        playerMove = "Pizza"
+        playerEmoji = pizzaEmoji
         playRound()
     }
 
@@ -181,14 +182,14 @@ struct RockPaperScissorsView: View {
         let randomNumber: Int = Int.random(in: 1...3)
 
         if randomNumber == 1 {
-            computerMove = "Rock"
-            computerEmoji = rockEmoji
+            computerMove = "Banana"
+            computerEmoji = bananaEmoji
         } else if randomNumber == 2 {
-            computerMove = "Paper"
-            computerEmoji = paperEmoji
+            computerMove = "Frog"
+            computerEmoji = frogEmoji
         } else {
-            computerMove = "Scissors"
-            computerEmoji = scissorsEmoji
+            computerMove = "Pizza"
+            computerEmoji = pizzaEmoji
         }
     }
 
