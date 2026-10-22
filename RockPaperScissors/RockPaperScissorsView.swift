@@ -204,7 +204,15 @@ struct RockPaperScissorsView: View {
         } else {
             // This is where the game needs your help.
             // Who won: you, or the computer?
-            result = "Someone won"
+            if playerMove == "Banana" &&
+                computerMove == "Pizza" ||
+                playerMove == "Frog" &&
+                computerMove == "Banana" ||
+                playerMove == "Pizza" &&
+                computerMove == "Frog"
+            { result = "Player won!"}
+            else
+            { result = "Computer won!"}
         }
     }
 }

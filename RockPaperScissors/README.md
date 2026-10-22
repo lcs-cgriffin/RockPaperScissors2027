@@ -11,6 +11,7 @@ You against the computer. Click a move, and the computer picks one at random.
 ## What I added
  
 -  Changed rock to banana, paper to frog, and scissors to pizza. 
+- Added personalized messsaging for who has won. Differenciates between a win from the computer or a win from the player. 
 ## Credits
  
 - The starting game was written by Mr. Gordon.
