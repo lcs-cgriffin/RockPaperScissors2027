@@ -49,7 +49,7 @@ struct RockPaperScissorsView: View {
         VStack(spacing: 24) {
 
             // The title at the top of the screen.
-            Text("Rock Paper Scissors")
+            Text("Banana Frog Pizza")
                 .font(.largeTitle)
                 .bold()
                 .foregroundStyle(Color.teal)
