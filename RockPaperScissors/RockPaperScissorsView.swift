@@ -204,6 +204,7 @@ struct RockPaperScissorsView: View {
         } else {
             // This is where the game needs your help.
             // Who won: you, or the computer?
+            // New as of Wed, Oct 21. Now displays who has won each round. 
             if playerMove == "Banana" &&
                 computerMove == "Pizza" ||
                 playerMove == "Frog" &&
