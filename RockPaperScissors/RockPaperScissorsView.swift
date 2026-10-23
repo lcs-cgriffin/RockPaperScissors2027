@@ -47,6 +47,9 @@ struct RockPaperScissorsView: View {
     
     // The variable for what mode the game is in (easy/hard)
     @State var isGameEasy: Bool = true
+    
+    // The colour for the result of the round
+    @State var colorResult: Color = Color.teal
 
     // MARK: - Computed properties
 
