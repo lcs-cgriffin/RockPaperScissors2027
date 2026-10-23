@@ -64,6 +64,7 @@ struct RockPaperScissorsView: View {
 
             Spacer()
             
+// Buttons for easy and hard mode.
             HStack(spacing: 12) {
                 Button {
                     chooseEasy()
@@ -87,6 +88,9 @@ struct RockPaperScissorsView: View {
                     .frame(maxWidth: .infinity)
                 }
             }
+            .buttonStyle(.bordered)
+            .font(.headline)
+            .tint(Color.orange)
         
 
             // The two moves, side by side.
