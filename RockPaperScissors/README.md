@@ -14,6 +14,7 @@ You against the computer. Click a move, and the computer picks one at random.
 -  Changed rock to banana, paper to frog, and scissors to pizza. 
 - Added personalized messsaging for who has won. Differenciates between a win from the computer or a win from the player. 
 - Added Easy and Hard mode. Easy mode picks in a pattern (Banana, frog, then pizza). Hard mode picks at random. 
+- Added text that displays the current mode that the game is on. 
 
 ## Testing
 

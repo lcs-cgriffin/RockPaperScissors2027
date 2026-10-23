@@ -47,9 +47,7 @@ struct RockPaperScissorsView: View {
     
     // The variable for what mode the game is in (easy/hard)
     @State var isGameEasy: Bool = true
-    
-    // The colour for the result of the round
-    @State var colorResult: Color = Color.teal
+    @State var difficulty: String = "Easy"
 
     // MARK: - Computed properties
 
@@ -66,6 +64,13 @@ struct RockPaperScissorsView: View {
                 .minimumScaleFactor(3)
 
             Spacer()
+            
+            Text("Level: \(difficulty)")
+                .font(.headline)
+                .foregroundStyle(Color.secondary)
+            
+        
+
             
 // Buttons for easy and hard mode.
             HStack(spacing: 12) {
@@ -186,7 +191,7 @@ struct RockPaperScissorsView: View {
         .padding(32)
         .fontDesign(.rounded)
         // How big the game's window is on the Mac. It can be made taller or wider.
-        .frame(minWidth: 520, minHeight: 640)
+        .frame(minWidth: 520, minHeight: 700)
     }
 
     // MARK: - Functions
@@ -278,9 +283,11 @@ struct RockPaperScissorsView: View {
     // Easy and hard buttons.
     func chooseEasy() {
     isGameEasy = true
+    difficulty = "Easy"
     }
     func chooseHard() {
     isGameEasy = false
+    difficulty = "Hard"
     }
     
 }
