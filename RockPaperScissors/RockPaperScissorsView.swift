@@ -21,6 +21,8 @@ let bananaEmoji: String = "🍌"
 let frogEmoji: String = "🐸"
 let pizzaEmoji: String = "🍕 "
 
+
+
 // The game itself: what it remembers, what it shows on the screen,
 // and what it does when you click a button.
 struct RockPaperScissorsView: View {
@@ -42,6 +44,9 @@ struct RockPaperScissorsView: View {
 
     // How many rounds have been played.
     @State var roundsPlayed: Int = 0
+    
+    // The variable for what mode the game is in (easy/hard)
+    @State var isGameEasy: Bool = true
 
     // MARK: - Computed properties
 
@@ -55,9 +60,34 @@ struct RockPaperScissorsView: View {
                 .foregroundStyle(Color.teal)
                 // Shrink the title a little if it does not fit on one line.
                 .lineLimit(1)
-                .minimumScaleFactor(0.5)
+                .minimumScaleFactor(3)
 
             Spacer()
+            
+            HStack(spacing: 12) {
+                Button {
+                    chooseEasy()
+                } label: {
+                    VStack {
+                        Text("😊 ")
+                            .font(.system(size: 44))
+                        Text("Easy")
+                    }
+                    .frame(maxWidth: .infinity)
+                }
+                
+                Button {
+                    chooseHard()
+                } label: {
+                    VStack {
+                        Text("😡")
+                            .font(.system(size: 44))
+                        Text("Hard")
+                    }
+                    .frame(maxWidth: .infinity)
+                }
+            }
+        
 
             // The two moves, side by side.
             HStack {
@@ -166,6 +196,8 @@ struct RockPaperScissorsView: View {
         playerMove = "Frog"
         playerEmoji = frogEmoji
         playRound()
+        
+        
     }
 
     // The player picked scissors.
@@ -177,26 +209,46 @@ struct RockPaperScissorsView: View {
 
     // The computer picks its move at random.
     func chooseComputerMove() {
-
-        // Pick 1, 2 or 3. Each number stands for one move.
-        let randomNumber: Int = Int.random(in: 1...3)
-
-        if randomNumber == 1 {
-            computerMove = "Banana"
-            computerEmoji = bananaEmoji
-        } else if randomNumber == 2 {
-            computerMove = "Frog"
-            computerEmoji = frogEmoji
-        } else {
-            computerMove = "Pizza"
-            computerEmoji = pizzaEmoji
+        if isGameEasy == true {
+            let randomNumber: Int = Int.random(in: 1...3)
+            
+            if roundsPlayed % 3 == 1 {
+                let randomNumber: Int = 1
+                computerMove = "Banana"
+                computerEmoji = bananaEmoji }
+            
+            if roundsPlayed % 3 == 2 {
+                let randomNumber: Int = 2
+                computerMove = "Frog"
+                computerEmoji = frogEmoji }
+            
+            if roundsPlayed % 3 == 0 {
+                let randomNumber: Int = 3
+                computerMove = "Pizza"
+                computerEmoji = pizzaEmoji }
+            }
+        else {
+            
+            // Pick 1, 2 or 3. Each number stands for one move.
+            let randomNumber: Int = Int.random(in: 1...3)
+            
+            if randomNumber == 1 {
+                computerMove = "Banana"
+                computerEmoji = bananaEmoji
+            } else if randomNumber == 2 {
+                computerMove = "Frog"
+                computerEmoji = frogEmoji
+            } else {
+                computerMove = "Pizza"
+                computerEmoji = pizzaEmoji
+            }
         }
     }
-
     // Plays one round, once the player has picked a move.
     func playRound() {
         chooseComputerMove()
         roundsPlayed += 1
+
 
         if playerMove == computerMove {
             // TRY: Change what the game says when there is a tie.
@@ -216,6 +268,14 @@ struct RockPaperScissorsView: View {
             { result = "Computer won!"}
         }
     }
+    // Easy and hard buttons.
+    func chooseEasy() {
+    isGameEasy = true
+    }
+    func chooseHard() {
+    isGameEasy = false
+    }
+    
 }
 
 #Preview {
