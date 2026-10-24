@@ -244,20 +244,16 @@ struct RockPaperScissorsView: View {
     // The computer picks its move at random.
     func chooseComputerMove() {
         if isGameEasy == true {
-            let randomNumber: Int = Int.random(in: 1...3)
             
             if roundsPlayed % 3 == 1 {
-                let randomNumber: Int = 1
                 computerMove = "Banana"
                 computerEmoji = bananaEmoji }
             
             if roundsPlayed % 3 == 2 {
-                let randomNumber: Int = 2
                 computerMove = "Frog"
                 computerEmoji = frogEmoji }
             
             if roundsPlayed % 3 == 0 {
-                let randomNumber: Int = 3
                 computerMove = "Pizza"
                 computerEmoji = pizzaEmoji }
             }
