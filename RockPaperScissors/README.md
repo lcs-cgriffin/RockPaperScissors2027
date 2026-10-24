@@ -16,6 +16,7 @@ You against the computer. Click a move, and the computer picks one at random.
 - Added Easy and Hard mode. Easy mode picks in a pattern (Pizza, then banana, then frog on a loop). Hard mode picks at random. 
 - Added text that displays the current mode that the game is on. 
 - Changes colour based on result. Green for win by player, red for loss, and yellow for tie. 
+- Added "start new game button". Resets how many rounds played, mode, and color. 
 
 ## Testing
 
@@ -26,6 +27,7 @@ You against the computer. Click a move, and the computer picks one at random.
 | Hard mode working | Play four rounds on hard mode, selecting Banana each time | Results should be random, as the computer should be selecting randomly | Results were random. Won first round, lost second, and tied for third and fourth |
 | Is the difficulty level displaying? | Switch the modes between Easy and Hard | The text should corrospond to the mode selected | The text corrosponds to the mode selected |
 |  Correct colour change depending on result |  Switch the mode to easy, and select Banana as player choice each time.  |  The color result for the first move (Banana and Pizza) should be green, followed by yellow for a tie (Banana and Banana), and finaly red for a loss (Banana and Frog).  |  The correct colour results were displayed.  |
+| Does start new button work? |  After playing a round, press "start new game button".  |  Rounds played should reset, the mode should go back to easy, and the color should go back to teal. |The game reset as expected.  |
 
 ## Credits
  

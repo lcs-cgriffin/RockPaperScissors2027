@@ -193,8 +193,21 @@ struct RockPaperScissorsView: View {
         .padding(32)
         .fontDesign(.rounded)
         // How big the game's window is on the Mac. It can be made taller or wider.
-        .frame(minWidth: 520, minHeight: 700)
+        .frame(minWidth: 520, minHeight: 800)
+        
+        Button {
+            startNewGame()
+        } label: {
+            VStack {
+                Text("Start new game")
+                    .font(.system(size: 13))
+            }
+            .frame(maxWidth: .infinity)
+        }
+        
+        
     }
+    
 
     // MARK: - Functions
 
@@ -219,6 +232,13 @@ struct RockPaperScissorsView: View {
         playerMove = "Pizza"
         playerEmoji = pizzaEmoji
         playRound()
+    }
+    // Start new game, resets variables.
+    func startNewGame() {
+        isGameEasy = true
+        roundsPlayed = 0
+        winningColour = Color.teal
+        difficulty = "Easy"
     }
 
     // The computer picks its move at random.
