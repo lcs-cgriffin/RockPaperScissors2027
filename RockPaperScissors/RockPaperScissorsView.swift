@@ -48,6 +48,8 @@ struct RockPaperScissorsView: View {
     // The variable for what mode the game is in (easy/hard)
     @State var isGameEasy: Bool = true
     @State var difficulty: String = "Easy"
+    
+    @State var winningColour: Color = Color.teal
 
     // MARK: - Computed properties
 
@@ -128,7 +130,7 @@ struct RockPaperScissorsView: View {
                 .frame(maxWidth: .infinity)
             }
             .padding(.vertical)
-            .background(Color.teal.opacity(0.15))
+            .background(winningColour.opacity(0.15))
             .clipShape(RoundedRectangle(cornerRadius: 24))
 
             // The result of the round.
@@ -265,6 +267,7 @@ struct RockPaperScissorsView: View {
         if playerMove == computerMove {
             // TRY: Change what the game says when there is a tie.
             result = "It's a tie!"
+            winningColour = Color.yellow
         } else {
             // This is where the game needs your help.
             // Who won: you, or the computer?
@@ -275,9 +278,15 @@ struct RockPaperScissorsView: View {
                 computerMove == "Banana" ||
                 playerMove == "Pizza" &&
                 computerMove == "Frog"
-            { result = "Player won!"}
+            {
+                result = "Player won!"
+                winningColour = Color.green
+            }
             else
-            { result = "Computer won!"}
+            {
+                result = "Computer won!"
+                winningColour = Color.red
+            }
         }
     }
     // Easy and hard buttons.
