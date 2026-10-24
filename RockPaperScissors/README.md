@@ -11,12 +11,12 @@ You against the computer. Click a move, and the computer picks one at random.
  
 ## What I added
  
--  Changed rock to banana, paper to frog, and scissors to pizza. 
-- Added personalized messsaging for who has won. Differenciates between a win from the computer or a win from the player. 
-- Added Easy and Hard mode. Easy mode picks in a pattern (Pizza, then banana, then frog on a loop). Hard mode picks at random. 
-- Added text that displays the current mode that the game is on. 
-- Changes colour based on result. Green for win by player, red for loss, and yellow for tie. 
-- Added "start new game button". Resets how many rounds played, mode, and color. 
+-  Changed rock to banana, paper to frog, and scissors to pizza. I did this by changing the names of the variables, and changing their display symbol emojis. 
+- Added personalized messsaging for who has won. Differenciates between a win from the computer or a win from the player. I did this by having the program reconize all the possible wins from the player, using && and ||. 
+- Added Easy and Hard mode. Easy mode picks in a pattern (Pizza, then banana, then frog on a loop). Hard mode picks at random. I did this by adding two new buttons and a function, along with the bool variable "isGameEasy". Using a If Else within the function, if isGameEasy == true, then  using the line "if roundsPlayed % 3 == x" (1 for banana, 2 for frog, and 3 for pizza), the computer selects its moves in the loop of Pizza, then Banana, then Frog.  If else, then the computer will select its moves at random using the "let randomNumber: Int = Int.random(in: 1... 3)" feature. 1 for banana, 2 for frog, and 3 for pizza. 
+- Added text that displays the current mode that the game is on. I did this by adding @state var difficulity: String = "x". The variable changes to "Easy" when the easy button is pressed, and "Hard" when the hard button is pressed. I did this by adding the line " difficulty = "Easy" underneath the chooseEasy function, and " difficulty = "Hard" underneath the chooseHard function. Finally, I added text underneath the title that follows the line of "Text("Level: \(difficulty)")". 
+- Changes colour based on result. Green for win by player, red for loss, and yellow for tie. I added a new @state var called winningColor, which holds a color value. Underneath the function of playRound, the winningColor variable is changed if the result is a win, lose, or tie. 
+- Added "start new game button". Resets how many rounds played, mode, and color. I added a new button, and a function that is run when the button is pressed. The function simply resets the game to easy, rounds played to 0, and the color back to teal. 
 
 ## Testing
 
