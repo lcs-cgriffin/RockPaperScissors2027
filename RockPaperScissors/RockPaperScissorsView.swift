@@ -50,6 +50,13 @@ struct RockPaperScissorsView: View {
     @State var difficulty: String = "Easy"
     
     @State var winningColour: Color = Color.teal
+    
+    // Win counts for player and computer.
+    @State var playerWins: Int = 0
+    @State var computerWins: Int = 0
+    
+    // Variable stateing if the game is or is not over. The game will be over when someone gets 3 wins.
+    @State var isGameOver: Bool = false
 
     // MARK: - Computed properties
 
@@ -70,6 +77,7 @@ struct RockPaperScissorsView: View {
             Text("Level: \(difficulty)")
                 .font(.headline)
                 .foregroundStyle(Color.secondary)
+            
             
         
 
@@ -147,6 +155,7 @@ struct RockPaperScissorsView: View {
                 .foregroundStyle(Color.secondary)
 
             HStack(spacing: 12) {
+                
                 Button {
                     chooseBanana()
                 } label: {
@@ -180,6 +189,7 @@ struct RockPaperScissorsView: View {
                     .frame(maxWidth: .infinity)
                 }
             }
+            .disabled(playerWins == 3 || computerWins == 3 ? true : false)
             .buttonStyle(.bordered)
             .font(.headline)
             // TRY: Change teal to another colour. Change it in the title and the moves box too.
@@ -189,6 +199,17 @@ struct RockPaperScissorsView: View {
             Text("Rounds played: \(roundsPlayed)")
                 .font(.headline)
                 .foregroundStyle(Color.secondary)
+            
+            //Wins by player and wins by computer.
+            
+            Text("Player wins: \(playerWins)")
+                .font(.headline)
+                .foregroundStyle(Color.secondary)
+            
+            Text("Computer wins: \(computerWins)")
+                .font(.headline)
+                .foregroundStyle(Color.secondary)
+            
         }
         .padding(32)
         .fontDesign(.rounded)
@@ -204,7 +225,8 @@ struct RockPaperScissorsView: View {
             }
             .frame(maxWidth: .infinity)
         }
-        
+        // Only show the button once best of 3 has been achieved.
+  .opacity(isGameOver == true ? 1.0 : 0.0)
         
     }
     
@@ -239,6 +261,17 @@ struct RockPaperScissorsView: View {
         roundsPlayed = 0
         winningColour = Color.teal
         difficulty = "Easy"
+        playerMove = "No move yet"
+        playerEmoji = "❓"
+        computerMove = "No move yet"
+        computerEmoji = "❓"
+        result = "Let's play!"
+        playerWins = 0
+        computerWins = 0
+        isGameOver = false
+    
+
+        
     }
 
     // The computer picks its move at random.
@@ -276,34 +309,53 @@ struct RockPaperScissorsView: View {
     }
     // Plays one round, once the player has picked a move.
     func playRound() {
-        chooseComputerMove()
-        roundsPlayed += 1
-
-
-        if playerMove == computerMove {
-            // TRY: Change what the game says when there is a tie.
-            result = "It's a tie!"
-            winningColour = Color.yellow
-        } else {
-            // This is where the game needs your help.
-            // Who won: you, or the computer?
-            // New as of Wed, Oct 21. Now displays who has won each round. 
-            if playerMove == "Banana" &&
-                computerMove == "Pizza" ||
-                playerMove == "Frog" &&
-                computerMove == "Banana" ||
-                playerMove == "Pizza" &&
-                computerMove == "Frog"
-            {
-                result = "Player won!"
-                winningColour = Color.green
+            
+            chooseComputerMove()
+            roundsPlayed += 1
+            
+            
+            if playerMove == computerMove {
+                // TRY: Change what the game says when there is a tie.
+                result = "It's a tie!"
+                winningColour = Color.yellow
+            } else {
+                // This is where the game needs your help.
+                // Who won: you, or the computer?
+                // New as of Wed, Oct 21. Now displays who has won each round.
+                if playerMove == "Banana" &&
+                    computerMove == "Pizza" ||
+                    playerMove == "Frog" &&
+                    computerMove == "Banana" ||
+                    playerMove == "Pizza" &&
+                    computerMove == "Frog"
+                {
+                    result = "Player won!"
+                    winningColour = Color.green
+                    playerWins += 1
+        // Message displayed if best of 3 has been acheived yet. New as of Oct 26.
+                    if computerWins == 3 || playerWins == 3
+                    { isGameOver = true
+                        if playerWins == 3
+                        {
+                            result = "Game is over! Player has won!"}
+                        else
+                        { result = "Game is over! Computer has won!"} }
+                }
+                else
+                {
+                    result = "Computer won!"
+                    winningColour = Color.red
+                    computerWins += 1
+            // Message displayed if best of 3 has been acheived yet. New as of Oct 26.
+                    if computerWins == 3 || playerWins == 3
+                    { isGameOver = true
+                        if playerWins == 3
+                        {
+                            result = "Game is over! Player has won!"}
+                        else
+                        { result = "Game is over! Computer has won!"} }
+                }
             }
-            else
-            {
-                result = "Computer won!"
-                winningColour = Color.red
-            }
-        }
     }
     // Easy and hard buttons.
     func chooseEasy() {

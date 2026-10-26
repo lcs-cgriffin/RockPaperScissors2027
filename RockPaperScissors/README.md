@@ -17,6 +17,8 @@ You against the computer. Click a move, and the computer picks one at random.
 - Added text that displays the current mode that the game is on. I did this by adding @state var difficulity: String = "x". The variable changes to "Easy" when the easy button is pressed, and "Hard" when the hard button is pressed. I did this by adding the line " difficulty = "Easy" underneath the chooseEasy function, and " difficulty = "Hard" underneath the chooseHard function. Finally, I added text underneath the title that follows the line of "Text("Level: \(difficulty)")". 
 - Changes colour based on result. Green for win by player, red for loss, and yellow for tie. I added a new @state var called winningColor, which holds a color value. Underneath the function of playRound, the winningColor variable is changed if the result is a win, lose, or tie. 
 - Added "start new game button". Resets how many rounds played, mode, and color. I added a new button, and a function that is run when the button is pressed. The function simply resets the game to easy, rounds played to 0, and the color back to teal. 
+- Added "first to three wins" feature. Buttons turn off with .Disabled when eaither computer gets 3 wins or player gets 3 wins. I did this by adding new variables computerWins and playerWins, which change by 1 when a the player or computer wins. I used a new line of code within the HStack declaring ".disabled(playerWins == 3 || computerWins == 3 ? true : false)". 
+- Added "start new game" button. Once the player or the computer is at 3 wins, the button appears. The button triggers the function "startNewGame". The button only appears when "playerWins == 3 || computerWins == 3". I did this by changing its opacity, using the line " .opacity(isGameOver == true ? 1.0 : 0.0)". 
 
 ## Testing
 
@@ -28,6 +30,9 @@ You against the computer. Click a move, and the computer picks one at random.
 | Is the difficulty level displaying? | Switch the modes between Easy and Hard | The text should corrospond to the mode selected | The text corrosponds to the mode selected |
 |  Correct colour change depending on result |  Switch the mode to easy, and select Banana as player choice each time.  |  The color result for the first move (Banana and Pizza) should be green, followed by yellow for a tie (Banana and Banana), and finaly red for a loss (Banana and Frog).  |  The correct colour results were displayed.  |
 | Does start new button work? |  After playing a round, press "start new game button".  |  Rounds played should reset, the mode should go back to easy, and the color should go back to teal. |The game reset as expected.  |
+| Does first to 3 wins disable buttons? |  Set player wins to 3. Then repeat with computer wins.  |Buttons should become disabled.  |Buttons became disabled.  |
+| Does first to 3 wins display message that game is over and who has won overall? |  Set player wins to 3. Then repeat with computer wins.  |Buttons should become disabled. If computer has won, message of "Game is over! Computer has won!" Should be displayed. If player has won, message of "Game is over! Player has won!" should be displayed. |Correct messages were displayed, buttons were disabled.   |
+| Does Start New Game button appear once game is over? |  Set player wins to 3. Repeat with computer wins.  |  Start new game button should appear at the bottom of the screen. When clicked, the screen should reset to its inital interface.  |  Button appeared, game reset as expected. Button dissapeared once game reset as well.  |
 
 ## Credits
  
