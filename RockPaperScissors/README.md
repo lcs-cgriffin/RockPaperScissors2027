@@ -1,13 +1,14 @@
-#  # Rock Paper Scissors
+#  # Banana Frog Pizza  #
  
 You against the computer. Click a move, and the computer picks one at random.
  
 ## How to play
  
-1. Click **Banana**, **Frog**, or **Pizza**. 
-2. Select **Easy** mode or **Hard** mode. 
+1. Select **Easy** mode or **Hard** mode. 
+2. Click **Banana**, **Frog**, or **Pizza**. 
 3. The computer shows its move beside yours. 
 4. Banana beats pizza, frog beats banana, and pizza beats frog.
+5. First player to 3 wins is the Champion. Click **Start new game** to begin new game. 
  
 ## What I added
  
