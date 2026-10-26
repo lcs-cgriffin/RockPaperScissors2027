@@ -68,7 +68,7 @@ struct RockPaperScissorsView: View {
                 .font(.largeTitle)
                 .bold()
                 .foregroundStyle(Color.teal)
-                // Shrink the title a little if it does not fit on one line.
+            // Shrink the title a little if it does not fit on one line.
                 .lineLimit(1)
                 .minimumScaleFactor(3)
 
@@ -82,7 +82,7 @@ struct RockPaperScissorsView: View {
         
 
             
-// Buttons for easy and hard mode.
+            // Buttons for easy and hard mode.
             HStack(spacing: 12) {
                 Button {
                     chooseEasy()
@@ -226,7 +226,7 @@ struct RockPaperScissorsView: View {
             .frame(maxWidth: .infinity)
         }
         // Only show the button once best of 3 has been achieved.
-  .opacity(isGameOver == true ? 1.0 : 0.0)
+        .opacity(isGameOver == true ? 1.0 : 0.0)
         
     }
     
@@ -270,7 +270,7 @@ struct RockPaperScissorsView: View {
         computerWins = 0
         isGameOver = false
     
-
+        
         
     }
 
@@ -289,7 +289,7 @@ struct RockPaperScissorsView: View {
             if roundsPlayed % 3 == 0 {
                 computerMove = "Pizza"
                 computerEmoji = pizzaEmoji }
-            }
+        }
         else {
             
             // Pick 1, 2 or 3. Each number stands for one move.
@@ -310,15 +310,15 @@ struct RockPaperScissorsView: View {
     // Plays one round, once the player has picked a move.
     func playRound() {
             
-            chooseComputerMove()
-            roundsPlayed += 1
+        chooseComputerMove()
+        roundsPlayed += 1
             
             
-            if playerMove == computerMove {
-                // TRY: Change what the game says when there is a tie.
-                result = "It's a tie!"
+        if playerMove == computerMove {
+            // TRY: Change what the game says when there is a tie.
+            result = "It's a tie!"
                 winningColour = Color.yellow
-            } else {
+        } else {
                 // This is where the game needs your help.
                 // Who won: you, or the computer?
                 // New as of Wed, Oct 21. Now displays who has won each round.
@@ -332,7 +332,7 @@ struct RockPaperScissorsView: View {
                     result = "Player won!"
                     winningColour = Color.green
                     playerWins += 1
-        // Message displayed if best of 3 has been acheived yet. New as of Oct 26.
+                    // Message displayed if best of 3 has been acheived yet. New as of Oct 26.
                     if computerWins == 3 || playerWins == 3
                     { isGameOver = true
                         if playerWins == 3
@@ -346,7 +346,7 @@ struct RockPaperScissorsView: View {
                     result = "Computer won!"
                     winningColour = Color.red
                     computerWins += 1
-            // Message displayed if best of 3 has been acheived yet. New as of Oct 26.
+                    // Message displayed if best of 3 has been acheived yet. New as of Oct 26.
                     if computerWins == 3 || playerWins == 3
                     { isGameOver = true
                         if playerWins == 3
