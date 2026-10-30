@@ -20,6 +20,8 @@ import SwiftUI
 let bananaEmoji: String = "🍌"
 let frogEmoji: String = "🐸"
 let pizzaEmoji: String = "🍕 "
+// Number of wins required to be overall winner.
+let maximumWins: Int = 3
 
 
 
@@ -189,7 +191,7 @@ struct RockPaperScissorsView: View {
                     .frame(maxWidth: .infinity)
                 }
             }
-            .disabled(playerWins == 3 || computerWins == 3 ? true : false)
+            .disabled(playerWins == maximumWins || computerWins == maximumWins ? true : false)
             .buttonStyle(.bordered)
             .font(.headline)
             // TRY: Change teal to another colour. Change it in the title and the moves box too.
@@ -333,9 +335,9 @@ struct RockPaperScissorsView: View {
                     winningColour = Color.green
                     playerWins += 1
                     // Message displayed if best of 3 has been acheived yet. New as of Oct 26.
-                    if computerWins == 3 || playerWins == 3
+                    if computerWins == maximumWins || playerWins == maximumWins
                     { isGameOver = true
-                        if playerWins == 3
+                        if playerWins == maximumWins
                         {
                             result = "Game is over! Player has won!"}
                         else
@@ -347,9 +349,9 @@ struct RockPaperScissorsView: View {
                     winningColour = Color.red
                     computerWins += 1
                     // Message displayed if best of 3 has been acheived yet. New as of Oct 26.
-                    if computerWins == 3 || playerWins == 3
+                    if computerWins == maximumWins || playerWins == maximumWins
                     { isGameOver = true
-                        if playerWins == 3
+                        if playerWins == maximumWins
                         {
                             result = "Game is over! Player is the champion!"}
                         else

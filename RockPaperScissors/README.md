@@ -20,6 +20,7 @@ You against the computer. Click a move, and the computer will pick one as well.
 - Added "start new game button". Resets how many rounds played, message displayed, mode, and color. 
 - Added "first to three wins" feature. Buttons turn off with .Disabled when eaither computer gets 3 wins or player gets 3 wins. 
 - Made the  "start new game" button only appear after three wins.
+- A constant that holds the number of wins needed to end the game. 
 
 ## How it works
 - To change the theme of the game, I changed the names of the variables and changing their display symbol emojis. For example, chooseRock became chooseBanana. 
@@ -29,7 +30,8 @@ You against the computer. Click a move, and the computer will pick one as well.
 - To change the colour of the box based on the result, I added a new @state var called winningColor, which holds a color value. Underneath the function of playRound, the winningColor variable is changed if the result is a win, lose, or tie. 
 -  To add the start new game button, I added a new button, and a function (startNewGame) that is run when the button is pressed. The function simply resests all of the @state variables, and returns the screen to the inital look.
 - To add the first to three wins button that diables the buttons, I added new variables computerWins and playerWins, which change by 1 when a the player or computer wins. I used a new line of code within the HStack declaring ".disabled(playerWins == 3 || computerWins == 3 ? true : false)".  
-- To make the "Start new game button" appear after 3 wins, I did this by once the player or the computer is at 3 wins, the button appears. The button triggers the function "startNewGame". The button only appears when "playerWins == 3 || computerWins == 3". I did this by changing its opacity, using the line " .opacity(isGameOver == true ? 1.0 : 0.0)". 
+- To make the "Start new game button" appear after 3 wins, I did this by once the player or the computer is at 3 wins, the button appears. The button triggers the function "startNewGame". The button only appears when "playerWins == 3 || computerWins == 3". I did this by changing its opacity, using the line " .opacity(isGameOver == true ? 1.0 : 0.0)".
+- To add the constant that holds the number of wins needed, I added a new constant in the let statements called "maximumWins". I used it in place of where I had previsously been typing "3". (For example, the line if computerWins == maximumWins || playerWins == maximumWins, instead of if computerWins == 3|| playerWins == 3). This is more efficiant than typing out 3 everytime, and it also helps avoid error. 
 
 
 
@@ -50,7 +52,7 @@ You against the computer. Click a move, and the computer will pick one as well.
 | Does first to 3 wins disable buttons? |  Set player wins to 3. Then repeat with computer wins.  |Buttons should become disabled.  |Buttons became disabled.  |
 | Does first to 3 wins display message that game is over and who has won overall? |  Set player wins to 3. Then repeat with computer wins.  |Buttons should become disabled. If computer has won, message of "Game is over! Computer is the champion!" Should be displayed. If player has won, message of "Game is over! Player is the champion!" should be displayed. |Correct messages were displayed, buttons were disabled.   |
 | Does Start New Game button appear once game is over? |  Set player wins to 3. Repeat with computer wins.  |  Start new game button should appear at the bottom of the screen. When clicked, the screen should reset to its inital interface.  |  Button appeared, game reset as expected. Button dissapeared once game reset as well.  |
-|  |  |  |  |
+| Does the new constant maximumWins work in place of the number 3? |Set player wins to 3, repeat with computer wins. |The buttons should disable and a start new game button should appear.  | The buttons disabled and a start new game button appeared.  |
 
 ## Credits
  
