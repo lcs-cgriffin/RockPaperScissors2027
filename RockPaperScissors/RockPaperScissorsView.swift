@@ -260,7 +260,8 @@ struct RockPaperScissorsView: View {
         playRound()
     }
     // Start new game, resets variables.
-    func startNewGame() {
+    func startNewGame()
+    {
         isGameEasy = true
         roundsPlayed = 0
         winningColour = Color.teal
@@ -274,38 +275,47 @@ struct RockPaperScissorsView: View {
         computerWins = 0
         isGameOver = false
         
-        
-        
     }
     
     // The computer picks its move at random.
     func chooseComputerMove() {
         if isGameEasy == true {
             
-            if roundsPlayed % 3 == 1 {
+            if roundsPlayed % 3 == 1
+            {
                 computerMove = "Banana"
-                computerEmoji = bananaEmoji }
+                computerEmoji = bananaEmoji
+            }
             
-            if roundsPlayed % 3 == 2 {
+            if roundsPlayed % 3 == 2
+            {
                 computerMove = "Frog"
-                computerEmoji = frogEmoji }
+                computerEmoji = frogEmoji
+            }
             
-            if roundsPlayed % 3 == 0 {
+            if roundsPlayed % 3 == 0
+            {
                 computerMove = "Pizza"
-                computerEmoji = pizzaEmoji }
+                computerEmoji = pizzaEmoji
+            }
         }
         else {
             
             // Pick 1, 2 or 3. Each number stands for one move.
             let randomNumber: Int = Int.random(in: 1...3)
             
-            if randomNumber == 1 {
+            if randomNumber == 1
+            {
                 computerMove = "Banana"
                 computerEmoji = bananaEmoji
-            } else if randomNumber == 2 {
+            }
+            else if randomNumber == 2
+            {
                 computerMove = "Frog"
                 computerEmoji = frogEmoji
-            } else {
+            }
+            else
+            {
                 computerMove = "Pizza"
                 computerEmoji = pizzaEmoji
             }
@@ -352,7 +362,8 @@ struct RockPaperScissorsView: View {
                 computerWins += 1
                 // Message displayed if best of 3 has been acheived yet. New as of Oct 26.
                 if computerWins == maximumWins || playerWins == maximumWins
-                { isGameOver = true
+                {
+                    isGameOver = true
                     if playerWins == maximumWins
                     {
                         result = "Game is over! Player is the champion!"}
