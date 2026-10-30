@@ -339,9 +339,9 @@ struct RockPaperScissorsView: View {
                     { isGameOver = true
                         if playerWins == maximumWins
                         {
-                            result = "Game is over! Player has won!"}
+                            result = "Game is over! Player is the overall winner!"}
                         else
-                        { result = "Game is over! Computer has won!"} }
+                        { result = "Game is over! Computer is the overall winner!"} }
                 }
                 else
                 {
