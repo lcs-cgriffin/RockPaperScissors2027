@@ -287,13 +287,13 @@ struct RockPaperScissorsView: View {
                 computerEmoji = bananaEmoji
             }
             
-            if roundsPlayed % 3 == 2
+            else if roundsPlayed % 3 == 2
             {
                 computerMove = "Frog"
                 computerEmoji = frogEmoji
             }
             
-            if roundsPlayed % 3 == 0
+            else 
             {
                 computerMove = "Pizza"
                 computerEmoji = pizzaEmoji
