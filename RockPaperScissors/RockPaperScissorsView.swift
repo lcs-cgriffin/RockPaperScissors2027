@@ -3,15 +3,16 @@
 //  RockPaperScissors
 //
 //  WHAT THIS GAME DOES NOW
-//  You pick rock, paper or scissors. The computer picks one at random.
-//  The app shows both moves and counts how many rounds you have played.
+//  You pick banana, frog or pizza. The computer picks a move based on the mode you have chosen.
+// On easy mode, the computer will pick to the patteron of Pizza, then Banana, then Frog, then back in a loop.
+// Oh hard mode, the computer will pick at random.
+// The game pauses after the player or the computer has gotten three wins, with a message declaring the overall winner. A start new game button appears that resets the game.
+//  The game shows players wins, computer wins, and rouns played.
 //  It can tell when a round is a tie.
-//
-//  WHAT IT DOES NOT DO YET
-//  When the two moves are different, it only says "Someone won".
-//  It does not know who!
-//  Rock beats scissors, scissors beats paper, and paper beats rock.
-//
+// It can tell who has won each round, and displays a message for each.
+//  4. Banana beats pizza, frog beats banana, and pizza beats frog.
+// WHAT IT DOES NOT DO YET
+// Currently, there is no way to change the maximum number of required wins.
 
 import SwiftUI
 
@@ -50,7 +51,8 @@ struct RockPaperScissorsView: View {
     // The variable for what mode the game is in (easy/hard)
     @State var isGameEasy: Bool = true
     @State var difficulty: String = "Easy"
-    
+   
+    // The color of the box, that changes based on the results of the round. 
     @State var winningColour: Color = Color.teal
     
     // Win counts for player and computer.
@@ -235,14 +237,14 @@ struct RockPaperScissorsView: View {
 
     // MARK: - Functions
 
-    // The player picked rock.
+    // The player picked banana.
     func chooseBanana() {
         playerMove = "Banana"
         playerEmoji = bananaEmoji
         playRound()
     }
 
-    // The player picked paper.
+    // The player picked frog.
     func chooseFrog() {
         playerMove = "Frog"
         playerEmoji = frogEmoji
@@ -251,7 +253,7 @@ struct RockPaperScissorsView: View {
         
     }
 
-    // The player picked scissors.
+    // The player picked pizza.
     func choosePizza() {
         playerMove = "Pizza"
         playerEmoji = pizzaEmoji
