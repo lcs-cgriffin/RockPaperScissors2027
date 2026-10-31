@@ -14,7 +14,8 @@
 // It can tell who has won each round, and displays a message for each.
 //  4. Banana beats pizza, frog beats banana, and pizza beats frog.
 // WHAT IT DOES NOT DO YET
-// Currently, there is no way to change the maximum number of required wins.
+// There is no option for a cheating computer.
+// There is no way to change the overall theme of the game.
 
 import SwiftUI
 

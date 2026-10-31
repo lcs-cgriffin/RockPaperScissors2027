@@ -1,6 +1,6 @@
 #  Banana Frog Pizza  #
  
-You against the computer. Click a move, and the computer will pick one as well. 
+You against the computer. Click a move, and the computer will pick one as well. Who will be the overall winner?
  
 ## How to play
  
@@ -8,7 +8,8 @@ You against the computer. Click a move, and the computer will pick one as well.
 2. Click **Banana**, **Frog**, or **Pizza**. 
 3. The computer shows its move beside yours. 
 4. Banana beats pizza, frog beats banana, and pizza beats frog.
-5. First player to 3 wins is the Champion. Click **Start new game** to begin new game. 
+5. First player to** 3 wins** on Easy and** 5 wins** on Hard is the **overall winner**. 
+6. Click **Start new game** to begin new game. 
  
 ## What I added
  
