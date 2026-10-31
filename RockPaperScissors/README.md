@@ -21,6 +21,7 @@ You against the computer. Click a move, and the computer will pick one as well.
 - Added "first to three wins" feature. Buttons turn off with .Disabled when eaither computer gets 3 wins or player gets 3 wins. 
 - Made the "start new game" button only appear after three wins.
 - A constant that holds the number of wins needed to end the game. 
+- 3 wins requied for ultimate win on Easy, 5 wins required for ultimate win on hard
 
 ## How it works
 - To change the theme of the game, I changed the names of the variables and changing their display symbol emojis. For example, chooseRock became chooseBanana. 
@@ -32,6 +33,7 @@ You against the computer. Click a move, and the computer will pick one as well.
 - To add the first to three wins button that diables the buttons, I added new variables computerWins and playerWins, which change by 1 when a the player or computer wins. I used a new line of code within the HStack declaring ".disabled(playerWins == 3 || computerWins == 3 ? true : false)".  
 - To make the "Start new game button" appear after 3 wins, I did this by once the player or the computer is at 3 wins, the button appears. The button triggers the function "startNewGame". The button only appears when "playerWins == 3 || computerWins == 3". I did this by changing its opacity, using the line " .opacity(isGameOver == true ? 1.0 : 0.0)".
 - To add the constant that holds the number of wins needed, I added a new constant in the let statements called "maximumWins". I used it in place of where I had previsously been typing "3". (For example, the line if computerWins == maximumWins || playerWins == maximumWins, instead of if computerWins == 3|| playerWins == 3). This is more efficiant than typing out 3 everytime, and it also helps avoid error. 
+- To have the maximum wins needed to be the ultimate winner, I changed the maximumWins constant to a @State var. Under the function chooseEasy, it changes to 3. Under the function chooseHard, it sets to 5. It resets to 3 when a new game is started. I did this by having the function startNewGame reset it. 
 
 
 
@@ -54,9 +56,12 @@ You against the computer. Click a move, and the computer will pick one as well.
 |  Correct colour change depending on result |  Switch the mode to easy, and select Banana as player choice each time.  |  The color result for the first move (Banana and Pizza) should be green, followed by yellow for a tie (Banana and Banana), and finaly red for a loss (Banana and Frog).  |  The correct colour results were displayed.  |
 | Does start new button work? |  After playing a round, press "start new game button".  |  Rounds played should reset, the mode should go back to easy, and the color should go back to teal. |The game reset as expected.  |
 | Does first to 3 wins disable buttons? |  Set player wins to 3. Then repeat with computer wins.  |Buttons should become disabled.  |Buttons became disabled.  |
-| Does first to 3 wins display message that game is over and who has won overall? |  Set player wins to 3. Then repeat with computer wins.  |Buttons should become disabled. If computer has won, message of "Game is over! Computer is the overall winner!" Should be displayed. If player has won, message of "Game is over! Player is the o!" should be displayed. |Correct messages were displayed, buttons were disabled.   |
+| Does first to 3 wins display message that game is over and who has won overall? |  Set player wins to 3. Then repeat with computer wins.  |Buttons should become disabled. If computer has won, message of "Game is over! Computer is the overall winner!" Should be displayed. If player has won, message of "Game is over! Player is the overall winner!" should be displayed. |Correct messages were displayed, buttons were disabled.   |
 | Does Start New Game button appear once game is over? |  Set player wins to 3. Repeat with computer wins.  |  Start new game button should appear at the bottom of the screen. When clicked, the screen should reset to its inital interface.  |  Button appeared, game reset as expected. Button dissapeared once game reset as well.  |
-| Does the new constant maximumWins work in place of the number 3? |Set player wins to 3, repeat with computer wins. |The buttons should disable and a start new game button should appear.  | The buttons disabled and a start new game button appeared.  |
+| Does the new variable maximumWins work in place of the number 3? |Set player wins to 3, repeat with computer wins. |The buttons should disable and a start new game button should appear.  | The buttons disabled and a start new game button appeared.  |
+| Does the new maximumWins variable change to 3 on easy mode? |Set mode to easy, and player wins to 3.  |"Game is over! Player is the overall winner!" should be displayed, and the Start new game button should appear. |"Game is over! Player is the overall winner!" was displayed, start new game button appeared.  |
+| Does maximumWins change to 5 on hard mode? | Set game mode to hard, and player wins to 5. | "Game is over! Player is the overall winner!" should be displayed, and the Start new game button should appear. | "Game is over! Player is the overall winner!" was displayed, and the Start new game button appeared. |
+| Does maximumWins reset to 3 when start new game button is pressed? | Play round on hard until start new game button appears, then press, and play round until player has 3 wins. | ""Game is over! Player is the overall winner!" should be displayed, and the Start new game button should appear.| Correct message appeared, variable reset. |
 
 ## Credits
  

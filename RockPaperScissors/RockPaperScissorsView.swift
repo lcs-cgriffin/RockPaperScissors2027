@@ -5,7 +5,9 @@
 //  WHAT THIS GAME DOES NOW
 //  You pick banana, frog or pizza. The computer picks a move based on the mode you have chosen.
 // On easy mode, the computer will pick to the patteron of Pizza, then Banana, then Frog, then back in a loop.
-// Oh hard mode, the computer will pick at random.
+// On easy mode, you need 3 wins to be the overall winner.
+// On hard mode, the computer will pick at random.
+// On hard mode, you need 5 wins to be the overall winner.
 // The game pauses after the player or the computer has gotten three wins, with a message declaring the overall winner. A start new game button appears that resets the game.
 //  The game shows players wins, computer wins, and rouns played.
 //  It can tell when a round is a tie.
@@ -21,9 +23,6 @@ import SwiftUI
 let bananaEmoji: String = "🍌"
 let frogEmoji: String = "🐸"
 let pizzaEmoji: String = "🍕 "
-
-// Number of wins required to be overall winner.
-let maximumWins: Int = 3
 
 
 
@@ -62,6 +61,9 @@ struct RockPaperScissorsView: View {
     
     // Variable stateing if the game is or is not over. The game will be over when someone gets 3 wins.
     @State var isGameOver: Bool = false
+    
+    // Number of wins required to be overall winner.
+    @State var maximumWins: Int = 3
     
     // MARK: - Computed properties
     
@@ -271,6 +273,7 @@ struct RockPaperScissorsView: View {
         playerWins = 0
         computerWins = 0
         isGameOver = false
+        maximumWins = 3
         
     }
     
@@ -373,10 +376,12 @@ struct RockPaperScissorsView: View {
     func chooseEasy() {
         isGameEasy = true
         difficulty = "Easy"
+        maximumWins = 3
     }
     func chooseHard() {
         isGameEasy = false
         difficulty = "Hard"
+        maximumWins = 5
     }
     
 }
