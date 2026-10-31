@@ -21,6 +21,7 @@ import SwiftUI
 let bananaEmoji: String = "🍌"
 let frogEmoji: String = "🐸"
 let pizzaEmoji: String = "🍕 "
+
 // Number of wins required to be overall winner.
 let maximumWins: Int = 3
 
@@ -74,9 +75,7 @@ struct RockPaperScissorsView: View {
                 .foregroundStyle(Color.teal)
             // Shrink the title a little if it does not fit on one line.
                 .lineLimit(1)
-                .minimumScaleFactor(3)
-            
-            Spacer()
+                .minimumScaleFactor(4)
             
             Text("Level: \(difficulty)")
                 .font(.headline)
@@ -149,8 +148,6 @@ struct RockPaperScissorsView: View {
             Text(result)
                 .font(.largeTitle)
                 .bold()
-            
-            Spacer()
             
             // One button for each move the player can make.
             // The code inside the braces runs when that button is clicked.
